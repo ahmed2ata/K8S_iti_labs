@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-backend-devops
+  labels:
+    app: service-backend-devops
+spec:
+  type: NodePort
+  ports:
+   - targetPort: 8080
+     port: 8080
+     nodePort: 31111
+     name: port-backend
+  selector:
+     app: ingress-default-backend

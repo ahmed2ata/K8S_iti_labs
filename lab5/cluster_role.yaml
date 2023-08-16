@@ -1,0 +1,8 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: haproxy-cluster-role-devops
+rules:
+  - apiGroups: [""] # Empty string represents core API group
+    resources: ["Configmaps", "secrets", "endpoints", "nodes", "pods", "services", "namespaces", "events", "serviceaccounts"]
+    verbs: ["get", "list", "watch", "create", "update", "patch"]

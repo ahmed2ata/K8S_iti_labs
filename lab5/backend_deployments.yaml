@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment-devops
+  labels:
+    app: ingress-default-backend 
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ingress-default-backend 
+  template:
+    metadata:
+      labels:
+        app: ingress-default-backend
+    spec:
+      containers:
+      - name: backend-container-devops
+        image: gcr.io/google_containers/defaultbackend:1.0
+        ports:
+        - containerPort: 8080
